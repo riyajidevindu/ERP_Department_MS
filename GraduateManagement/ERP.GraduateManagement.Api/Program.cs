@@ -1,4 +1,6 @@
 using ERP.GraduateManagement.DataServices.Data;
+using ERP.GraduateManagement.DataServices.Repositories;
+using ERP.GraduateManagement.DataServices.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(connect
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
